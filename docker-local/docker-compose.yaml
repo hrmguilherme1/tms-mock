@@ -1,0 +1,12 @@
+services:
+    api.template.dev:
+        container_name: api.template.dev
+        hostname: api.template.dev
+        image: api.template.dev
+        build:
+            context: ../
+            dockerfile:  Dockerfile
+        ports:
+            - 8080:8080
+
+

@@ -1,0 +1,18 @@
+sonar:
+  enabled: true
+  type: other
+
+build:
+  enabled: true
+
+sast:
+  enabled: true
+
+deploy:
+  type: argocd
+
+steps:
+  - name: unit-tests
+    image: 289208114389.dkr.ecr.us-east-1.amazonaws.com/maven:3.8.3-openjdk-17-slim
+    commands:
+      - mvn clean test jacoco:report -s docker-local/settings.xml

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+    "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+    "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <suppress checks="HideUtilityClassConstructor" files="Application.java" />
+
+    <suppress checks="DesignForExtension" files=".*/configurations/.*.java" />
+    <suppress checks="DesignForExtension" files=".*/test/.*.java" />
+
+    <suppress checks="MethodName" files="test/*" />
+
+    <suppress checks="MagicNumber" files=".*/infra/http/.*.java" />
+    <suppress checks="MagicNumber" files=".*/test/.*.java" />
+    <suppress checks="MagicNumber" files=".*/exceptions/.*.java" />
+
+    <suppress checks="MemberName" files=".*/.*Payload.java" />
+    <suppress checks="MemberName" files=".*/.*Response.java" />
+    <suppress checks="ParameterName" files=".*/.*Payload.java" />
+    <suppress checks="ParameterName" files=".*/.*Response.java" />
+
+    <suppress checks="IllegalImportCheck" files=".*/utils/CoreUtilities.java"/>
+
+</suppressions>

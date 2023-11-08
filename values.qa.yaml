@@ -1,0 +1,66 @@
+global:
+  app_stage: qa
+  image:
+    tag: ${artifact.buildNo}
+  releaseNumber: 0
+  jvm_metrics:
+    enabled: true
+    port: 8081
+  externalSecrets:
+    enabled: true
+    type: vault 
+    mountPath: kubernetes-srvfpj-use1-hom
+    path: kv/financial_services_pj/hom
+
+picpay-ms-v2:
+  apis:
+    - name: api
+      envFrom:
+        - secretRef:
+            name: envs
+      workload: srvfpj      
+      health:
+        path: /health
+      readiness:
+        initialDelaySeconds: 30
+        periodSeconds: 5
+        successThreshold: 1
+        failureThreshold: 3
+        timeoutSeconds: 5
+      liveness:
+        initialDelaySeconds: 200
+        periodSeconds: 5
+        successThreshold: 1
+        failureThreshold: 4
+        timeoutSeconds: 5
+      hpa:
+        enabled: true
+        max: 2
+        min: 1
+        targetCPU: 80
+      containerPort: 8080
+      image:
+        repositoryURI: 289208114389.dkr.ecr.us-east-1.amazonaws.com/picpay-dev/ms-transactions-channels-capture-gateway
+      ingress:
+        - enabled: true
+          type: internal-microservices
+          hosts:
+            - hostname: ms-transactions-channels-capture-gateway.ms.qa
+              path: "/"
+      podDisruptionBudget:
+        enabled: false
+      limits_memory: 600Mi
+      limits_cpu: 500m
+      requests_cpu: 50m
+      requests_memory: 400Mi
+      service:
+        enabled: true
+        port: 80
+        targetPort: 8080
+      lifecycle:
+        preStop:
+          - "/bin/bash"
+          - "-c"
+          - "/bin/sleep 20 && kill -QUIT 1"
+
+  workers: []

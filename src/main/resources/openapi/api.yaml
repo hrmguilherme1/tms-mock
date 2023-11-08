@@ -1,0 +1,18 @@
+openapi: 3.0.3
+info:
+  title: Template
+  description: Template description
+  version: 1.0.0
+servers:
+  - url: /api/v1
+paths:
+  /hello:
+    get:
+      operationId: "hello"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelloDTO'

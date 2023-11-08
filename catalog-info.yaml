@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "ms-transactions-channels-capture-gateway"
+  tags:
+    - kotlin
+    - spring-boot
+    - newrelic
+    - api
+    - apm
+  description: "Capture transactions from network adapters"
+  annotations:
+    backstage.io/kubernetes-id: "ms-transactions-channels-capture-gateway"
+    github.com/project-slug: "PicPay/ms-transactions-channels-capture-gateway"
+    sonarqube.org/project-key: "PicPay_ms-transactions-channels-capture-gateway"
+    newrelic.com/app-name: "ms-transactions-channels-capture-gateway"
+    backstage.io/techdocs-ref: dir:.
+  labels:
+    moonlight.picpay/language: kotlin
+    moonlight.picpay/framework: spring-boot
+    moonlight.picpay/monitoring: newrelic
+    moonlight.picpay/monitoring-strategy: apm
+  links:
+    - url: https://picpay.atlassian.net/jira/software/c/projects/MFG/boards/6620
+      title: Jira Board
+      icon: dashboard
+    - url: https://picpay.atlassian.net/wiki/spaces/MFG/overview
+      title: Confluence Docs
+      icon: dashboard
+spec:
+  lifecycle: production
+  owner: squad_mundo_fisico_gateway
+  type: service

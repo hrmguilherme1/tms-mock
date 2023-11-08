@@ -1,0 +1,35 @@
+<settings>
+    <servers>
+        <server>
+            <id>picpay-releases</id>
+            <username>picpay-dev</username>
+            <password>aSY3x22ucTpmrp1Z6h</password>
+        </server>
+        <server>
+            <id>picpay-snapshots</id>
+            <username>picpay-dev</username>
+            <password>aSY3x22ucTpmrp1Z6h</password>
+        </server>
+    </servers>
+    <profiles>
+        <profile>
+            <id>picpay-deploy</id>
+
+            <repositories>
+                <repository>
+                    <id>picpay-releases</id>
+                    <url>https://nexus-prod.limbo.work/repository/picpay-maven-releases/</url>
+                </repository>
+                <repository>
+                    <id>picpay-snapshots</id>
+                    <url>https://nexus-prod.limbo.work/repository/picpay-maven-snapshots/</url>
+                </repository>
+            </repositories>
+
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>picpay-deploy</activeProfile>
+    </activeProfiles>
+</settings>

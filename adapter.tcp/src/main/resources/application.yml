@@ -5,7 +5,9 @@ spring:
     banner-mode: 'off'
     allow-bean-definition-overriding: true
   profiles:
-    active: local
+    active: dev
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
 server-thread-pool:
   core-size: ${THREAD_POOL_CORE_SIZE:10}
@@ -30,7 +32,7 @@ springdoc:
     title: Swagger Capture Channels
     description: Serviço de captura de canais
     version: 2.1.0
-
+url: test
 management:
   health:
     diskSpace:
@@ -49,3 +51,4 @@ management:
   endpoint:
     health:
       show-details: always
+
